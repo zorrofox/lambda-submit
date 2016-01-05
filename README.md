@@ -34,15 +34,15 @@ functions to write output to Amazon CloudWatch Logs, store data in DynamoDB, rea
 
 Step 1 – Create an AWS CloudFormation Stack with Template One and copy the S3 bucket name from the AWS CloudFormation output.
 
-Step 2 – Create a CloudSearch domain using the [AWS console](https://console.aws.amazon.com/cloudsearch/home?region=us-east-1). Create a manual index containing attributes for noteId, headline, text, s3key similar to the diagram below:
+Step 2 – Create a CloudSearch domain using the [AWS console](https://console.aws.amazon.com/cloudsearch/home?region=us-east-1). Create a manual index containing attributes for `noteId`, `headline`, `text`, `s3key` similar to the diagram below:
 
 ![Alt text](assets/cloudsearch-attributes.png?raw=true “CloudSearch Attributes”)
 
 Step 3 – Update the following environment variables in each Lambda function based on the output of Steps 1 and 2.
 
-a   CLOUDSEARCH_DOCUMENT_ENDPOINT in streams-data-function/index.js with the Document Endpoint of CloudSearch
+a   CLOUDSEARCH_DOCUMENT_ENDPOINT in [streams-data-function/index.js](https://github.com/zorrofox/lambda-submit/tree/master/streams-data-function/index.js) with the Document Endpoint of CloudSearch
 
-b   CLOUDSEARCH_SEARCH_ENDPOINT in search-data-function/index.js with the Search Endpoint of CloudSearch
+b   CLOUDSEARCH_SEARCH_ENDPOINT in [search-data-function/index.js](https://github.com/zorrofox/lambda-submit/tree/master/search-data-function/index.js) with the Search Endpoint of CloudSearch
 
 Step 4 – Upload a .zip file of each lambda function to Amazon S3 and create an AWS Cloudformation Stack with Template Two.
 
