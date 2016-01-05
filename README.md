@@ -40,9 +40,9 @@ Step 2 – Create a CloudSearch domain using the [AWS console](https://console.a
 
 Step 3 – Update the following environment variables in each Lambda function based on the output of Steps 1 and 2.
 
-a   CLOUDSEARCH_DOCUMENT_ENDPOINT in [streams-data-function/index.js](https://github.com/zorrofox/lambda-submit/tree/master/lambda-functions/streams-data-function/index.js) with the Document Endpoint of CloudSearch
+a   CLOUDSEARCH_DOCUMENT_ENDPOINT in [streams-data-function/index.js](https://github.com/zorrofox/lambda-submit/blob/master/lambda-functions/streams-data-functions/index.js) with the Document Endpoint of CloudSearch
 
-b   CLOUDSEARCH_SEARCH_ENDPOINT in [search-data-function/index.js](https://github.com/zorrofox/lambda-submit/tree/master/lambda-functions/search-data-function/index.js) with the Search Endpoint of CloudSearch
+b   CLOUDSEARCH_SEARCH_ENDPOINT in [search-data-function/index.js](https://github.com/zorrofox/lambda-submit/blob/master/lambda-functions/search-data-functions/index.js) with the Search Endpoint of CloudSearch
 
 Step 4 – Upload a .zip file of each lambda function to Amazon S3 and create an AWS Cloudformation Stack with Template Two.
 
