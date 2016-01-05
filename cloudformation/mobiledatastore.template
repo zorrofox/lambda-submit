@@ -35,7 +35,7 @@
                     },
                     "Origins": [
                         {
-                        	"DomainName": {"Fn::Join" : ["", [{"Ref" : "S3MobileUploadsBucket"}, ".s3.amazonaws.com"]]},
+                        	"DomainName": {"Fn::Join" : ["", [{"Ref" : "S3MobileUploadsBucket"}, "-resized", ".s3.amazonaws.com"]]},
                             "Id": "S3-mobile-user-uploads",
                             "S3OriginConfig": {}
                         }
@@ -81,6 +81,13 @@
                 "BucketName": {"Ref" : "S3MobileUploadsBucket"},
                 "AccessControl": "PublicRead"
             }
+        },
+        "S3mobileuseruploadsResize": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+                "BucketName": {"Fn::Join" : ["", {"Ref" : "S3MobileUploadsBucket"}, "-resized"]},
+                "AccessControl": "PublicRead"
+            }
         }
     },
     "Outputs": {
@@ -90,6 +97,12 @@
         		"Ref": "S3mobileuseruploads"
       		}
     	},
+        "S3BucketResizeName": {
+            "Description": "Storage location for mobile uploads PIC thumbs",
+            "Value": {
+                "Ref": "S3mobileuseruploadsResize"
+            }
+        },
     	"CloudFrontUrl": {
       		"Description": "CloudFront Url to reference in lambda function",
       		"Value": {

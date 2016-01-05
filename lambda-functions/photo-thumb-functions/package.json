@@ -1,0 +1,16 @@
+{
+  "name": "Lambda-Create-Thumbnail",
+  "version": "0.0.1",
+  "description": "An example module to illustrate the usage of AWS Lambda function",
+  "author": "Greg Huang <huadebin@amazon.com>",
+
+  "keywords": [
+  "aws",
+  "lambda",
+  "thumbnail"
+  ],
+  "dependencies": {
+    "async": "*",
+    "gm": "*"
+  }
+}

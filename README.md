@@ -2,7 +2,7 @@
 
 AWS Lambda Reference Architecture for creating a Mobile Backend. You can build backends using AWS Lambda and Amazon API Gateway to authenticate and process API requests. Lambda makes it easy to create rich, personalized app experiences.  The architecture described in this [diagram](https://s3.amazonaws.com/grhuang-example/mobile-backend/lambda-refarch-mobilebackend.pdf) can be created with a CloudFormation template.
 
-[Template One](https://s3.amazonaws.com/grhuang-example/mobile-backend/mobiledatastore.template)
+[Template One](https://github.com/zorrofox/lambda-submit/tree/master/cloudformation/mobiledatastore.template)
 does the following:
 
 -   Configures the Amazon Simple Storage Service (Amazon S3) bucket to receive user uploaded photos.
@@ -13,7 +13,7 @@ does the following:
 
 -   Configures the Amazon DynamoDB Table for storing mobile data from the iOS application.
 
-[Template Two](https://s3.amazonaws.com/grhuang-example/mobile-backend/lambdafunctions.template)
+[Template Two](https://github.com/zorrofox/lambda-submit/tree/master/cloudformation/lambdafunctions.template)
 does the following:
 
 -   Creates a Lambda function to stream updates from DynamoDB and index in CloudSearch.
@@ -34,7 +34,7 @@ functions to write output to Amazon CloudWatch Logs, store data in DynamoDB, rea
 
 Step 1 – Create an AWS CloudFormation Stack with Template One and copy the S3 bucket name from the AWS CloudFormation output.
 
-Step 2 – Create a CloudSearch domain using the [AWS console](https://console.aws.amazon.com/cloudsearch/home?region=us-east-1). Create a manual index containing attributes for headline, s3_url, user_id similar to the diagram below:
+Step 2 – Create a CloudSearch domain using the [AWS console](https://console.aws.amazon.com/cloudsearch/home?region=us-east-1). Create a manual index containing attributes for noteId, headline, text, s3key similar to the diagram below:
 
 ![Alt text](assets/cloudsearch-attributes.png?raw=true “CloudSearch Attributes”)
 
@@ -57,7 +57,7 @@ Step 1 - Create a new Amazon Cognito identity pool through the [Amazon Cognito d
 
 Step 2 - Visit the [API Gateway dashboard](https://console.aws.amazon.com/apigateway/home) in your AWS account and create a new resource endpoints for `/notes`. Assign a POST method for the `/notes` endpoint. For the method, select the `Integration Request` type of “Lambda Function.” Configure the notes endpoint to use the notes-data-function.
 
-Under `Models` section, create a CreateNoteRequest and a CreateNoteResponse model using [these JSON templates ](https://github.com/awslabs/lambda-refarch-mobilebackend/tree/master/apigateway-models).
+Under `Models` section, create a CreateNoteRequest and a CreateNoteResponse model using [these JSON templates ](https://github.com/zorrofox/lambda-submit/tree/master/apigateway-models).
 
 Under `Method Request` for the method execution, enable API key required and assign the CreateNoteRequest model that was created earlier as the `Request Model`. 
 
