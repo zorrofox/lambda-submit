@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "CreateNoteRequest",
+  "type": "object",
+  "properties": {
+    "success" : {"type": "boolean"},
+    "notes" : {
+        "type" : "array",
+        "items" : {
+            "type" : "object",
+            "properties" : {
+                "noteId": { "type": "string" },
+                "headline": { "type": "string" },
+                "text": { "type": "string" }
+            }
+        }
+    }
+  }
+}
