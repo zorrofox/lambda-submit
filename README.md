@@ -1,22 +1,26 @@
-# AWS Lambda Reference Architecture: Mobile Backends
+# AWS Lambda Reference Architecture: Mobile Backends for Shanghai Submit 2015
 
-AWS Lambda Reference Architecture for creating a Mobile Backend. You can build backends using AWS Lambda and Amazon API Gateway to authenticate and process API requests. Lambda makes it easy to create rich, personalized app experiences.  The architecture described in this [diagram](https://s3.amazonaws.com/awslambda-reference-architectures/mobile-backend/lambda-refarch-mobilebackend.pdf) can be created with a CloudFormation template.
+AWS Lambda Reference Architecture for creating a Mobile Backend. You can build backends using AWS Lambda and Amazon API Gateway to authenticate and process API requests. Lambda makes it easy to create rich, personalized app experiences.  The architecture described in this [diagram](https://s3.amazonaws.com/grhuang-example/mobile-backend/lambda-refarch-mobilebackend.pdf) can be created with a CloudFormation template.
 
-[Template One](https://s3.amazonaws.com/awslambda-reference-architectures/mobile-backend/mobiledatastore.template)
+[Template One](https://s3.amazonaws.com/grhuang-example/mobile-backend/mobiledatastore.template)
 does the following:
 
 -   Configures the Amazon Simple Storage Service (Amazon S3) bucket to receive user uploaded photos.
+
+-	Configures the Amazon Simple Storage Service (Amazon S3) bucket to receive uploaded photos resize thumbs.
 
 -   Configures the Amazon CloudFront distribution to display static content for uploaded media.
 
 -   Configures the Amazon DynamoDB Table for storing mobile data from the iOS application.
 
-[Template Two](https://s3.amazonaws.com/awslambda-reference-architectures/mobile-backend/lambdafunctions.template)
+[Template Two](https://s3.amazonaws.com/grhuang-example/mobile-backend/lambdafunctions.template)
 does the following:
 
 -   Creates a Lambda function to stream updates from DynamoDB and index in CloudSearch.
 
 -   Creates a Lambda function to store mobile data into DynamoDB.
+
+-   Creates a Lambda function to triggered by S3 bulket upload event thumb action.
 
 -   Creates a Lambda function to query CloudSearch and return a matching document.
 
